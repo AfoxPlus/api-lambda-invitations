@@ -12,14 +12,11 @@ export class InvitationMongoDBSource {
         }
     }
     findByCode = async (code: string): Promise<Invitation> => {
-        try {
-            const result: InvitationDocument = await InvitationModel.findOne({ code: code, isActive: true }).where('guestUUID').equals("")
-            if (result == null)
-                throw new Error("Event doesn't exist")
+        const result: InvitationDocument = await InvitationModel.findOne({ code: code, isActive: true }).where('guestUUID').equals("")
+        if (result != null)
             return this.invitationDocumentoToDomain(result)
-        } catch (err) {
-            throw new Error("Internal Error")
-        }
+        else
+            throw new Error("Event doesn't exist")
     }
 
 

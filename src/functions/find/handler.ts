@@ -5,13 +5,21 @@ import { middyfy } from '@libs/lambda'
 import { mongodbconnect } from '@utils/mongodb_connection';
 import { APIGatewayProxyHandler } from 'aws-lambda/trigger/api-gateway-proxy';
 
-
 const find: APIGatewayProxyHandler = async (context) => {
   try {
     await mongodbconnect()
     const invitationRepository: InvitationRepository = new InvitationDataRepository()
     const { code } = context.pathParameters
-    const result = await invitationRepository.findByCode(code)
+    let errorMessage = ""
+    const result = await invitationRepository.findByCode(code).catch((err) => {
+      errorMessage = err.message
+      return null
+    })
+    if (result == null)
+      return formatJSONSuccessResponse({
+        success: false,
+        message: errorMessage
+      })
     return formatJSONSuccessResponse({
       success: true,
       payload: result,
