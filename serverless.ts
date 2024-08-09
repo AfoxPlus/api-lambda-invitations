@@ -4,7 +4,7 @@ import fetch from '@functions/fetch';
 import find from '@functions/find'
 
 const serverlessConfiguration: AWS = {
-  service: 'scaffolding-api-invitations',
+  service: 'api-lambda-invitations',
   frameworkVersion: '2',
   plugins: ['serverless-esbuild', 'serverless-offline'],
   provider: {
