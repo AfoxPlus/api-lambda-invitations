@@ -1,11 +1,12 @@
 import type { AWS } from '@serverless/typescript';
 
-import hello from '@functions/hello';
+import fetch from '@functions/fetch';
+import find from '@functions/find'
 
 const serverlessConfiguration: AWS = {
-  service: 'scaffolding-api-lambda',
+  service: 'api-lambda-invitations',
   frameworkVersion: '2',
-  plugins: ['serverless-esbuild','serverless-offline'],
+  plugins: ['serverless-esbuild', 'serverless-offline'],
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
@@ -24,7 +25,7 @@ const serverlessConfiguration: AWS = {
     lambdaHashingVersion: '20201221',
   },
   // import the function via paths
-  functions: { hello },
+  functions: { fetch, find },
   package: { individually: true },
   custom: {
     stage: '${opt:stage}',
