@@ -7,7 +7,7 @@ export class InvitationMongoDBSource {
         return result.map((document) => this.invitationDocumentoToDomain(document))
     }
     findByCode = async (code: string): Promise<Invitation> => {
-        const result: InvitationDocument = await InvitationModel.findOne({ code: code, isActive: true }).where('guestUUID').equals("")
+        const result: InvitationDocument = await InvitationModel.findOne({ code: code.toUpperCase(), isActive: true }).where('guestUUID').equals("")
         if (result != null)
             return this.invitationDocumentoToDomain(result)
         else
