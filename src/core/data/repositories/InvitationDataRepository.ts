@@ -8,5 +8,6 @@ export class InvitationDataRepository implements InvitationRepository {
 
     fetch = async (guestUUID: string): Promise<Invitation[]> => await this.dataSouce.fetch(guestUUID)
     findByCode = async (code: string): Promise<Invitation> => await this.dataSouce.findByCode(code)
+    setGuestUUID = async (guestUUID: string, invitationID: string): Promise<Boolean> => await this.dataSouce.setGuestUUID(guestUUID, invitationID)
 
 }

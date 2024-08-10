@@ -1,7 +1,8 @@
-import type { AWS } from '@serverless/typescript';
+import type { AWS } from '@serverless/typescript'
 
-import fetch from '@functions/fetch';
+import fetch from '@functions/fetch'
 import find from '@functions/find'
+import put from '@functions/put'
 
 const serverlessConfiguration: AWS = {
   service: 'api-lambda-invitations',
@@ -25,7 +26,7 @@ const serverlessConfiguration: AWS = {
     lambdaHashingVersion: '20201221',
   },
   // import the function via paths
-  functions: { fetch, find },
+  functions: { fetch, find, put },
   package: { individually: true },
   custom: {
     stage: '${opt:stage}',
