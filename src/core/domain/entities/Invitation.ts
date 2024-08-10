@@ -10,5 +10,6 @@ export interface Invitation {
     gate: string,
     table: string,
     ulrBarcode: string,
+    restaurant_id: string,
     participants: string
 }

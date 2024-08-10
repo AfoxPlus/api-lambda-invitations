@@ -36,6 +36,7 @@ export class InvitationMongoDBSource {
             gate: document.gate.toString(),
             table: document.table.toString(),
             ulrBarcode: document.ulrBarcode.toString(),
+            restaurant_id: document.restaurant.toString(),
             participants: document.participants.toString()
         }
     }

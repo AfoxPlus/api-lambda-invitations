@@ -14,6 +14,7 @@ export interface InvitationDocument extends Document {
     table: String,
     ulrBarcode: String,
     participants: String,
+    restaurant: String,
     isActive: Boolean
 }
 
@@ -30,6 +31,7 @@ const InvitationSchema: Schema = new Schema({
     table: { type: String },
     ulrBarcode: { type: String },
     participants: { type: String },
+    restaurant: { type: mongoose.Schema.Types.ObjectId, ref: 'Restaurant' },
     isActive: { type: Boolean, default: true }
 })
 
