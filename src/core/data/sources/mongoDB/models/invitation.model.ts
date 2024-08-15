@@ -2,20 +2,20 @@ import mongoose, { Schema, Document, Types } from "mongoose";
 
 export interface InvitationDocument extends Document {
     _id: Types.ObjectId,
-    guestUUID?: String,
-    guest: String,
-    urlBanner: String,
-    code: String,
-    title: String,
-    date: String,
-    address: String,
-    time: String,
-    gate: String,
-    table: String,
-    ulrBarcode: String,
-    participants: String,
-    restaurant: String,
-    isActive: Boolean
+    guestUUID?: string,
+    guest: string,
+    urlBanner: string,
+    code: string,
+    title: string,
+    date: string,
+    address: string,
+    time: string,
+    gate: string,
+    table: string,
+    ulrBarcode: string,
+    participants: string,
+    restaurant: string,
+    isActive: boolean
 }
 
 const InvitationSchema: Schema = new Schema({

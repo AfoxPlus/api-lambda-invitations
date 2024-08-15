@@ -19,25 +19,24 @@ export class InvitationMongoDBSource {
             .updateOne({ _id: invitationID }, { guestUUID: guestUUID })
             .then((item) => { return item.modifiedCount == 1 })
             .catch((_) => { return false })
-        console.log("RESULT UPDATE" + result)
         return result
     }
 
     private invitationDocumentoToDomain(document: InvitationDocument): Invitation {
         return {
             id: document._id.toString(),
-            urlBanner: document.urlBanner.toString(),
-            code: document.code.toString(),
-            title: document.title.toString(),
-            date: document.date.toString(),
-            address: document.address.toString(),
-            guest: document.guest.toString(),
-            time: document.time.toString(),
-            gate: document.gate.toString(),
-            table: document.table.toString(),
-            ulrBarcode: document.ulrBarcode.toString(),
             restaurant_id: document.restaurant.toString(),
-            participants: document.participants.toString()
+            urlBanner: document.urlBanner,
+            code: document.code,
+            title: document.title,
+            date: document.date,
+            address: document.address,
+            guest: document.guest,
+            time: document.time,
+            gate: document.gate,
+            table: document.table,
+            ulrBarcode: document.ulrBarcode,
+            participants: document.participants
         }
     }
 
